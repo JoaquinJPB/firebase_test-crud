@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <title>Firebase Web Project</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Firebase CRUD</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#signinModal">Iniciar sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='#' data-toggle="modal" data-target="#signupModal">Regístraste</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='#' data-toggle="modal" data-target="#dataModal" id="data">Ver mis datos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logout">Cerrar sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<body>
+
+    <!-- Modal Log In-->
+    <div class="modal fade" id="signinModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Inicio de sesión</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form">
+                        <div class="form-group">
+                            <input type="text" id="login-email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="login-password" class="form-control" placeholder="Contraseña"
+                                required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Entrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Sign Up -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Crear una cuenta</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="signup-form">
+                        <div class="form-group">
+                            <input type="text" id="signup-name" class="form-control" placeholder="Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="signup-surname" class="form-control" placeholder="Apellidos"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="signup-email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="signup-password" class="form-control" placeholder="Password"
+                                required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="dataModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Mis datos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="userName"></td>
+                                <td id="userEmail"></td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <ul class="list-group posts">
+                    <li class="list-group-item">
+                        <h3>Titulo</h3>
+                        <p>Lorem ipsum dolor sit.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+    <!-- Module Script-->
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
